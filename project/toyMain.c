@@ -2,4 +2,6 @@
 
 int main(void){
   led_init();
+
+  or_sr(0x18);
 }
