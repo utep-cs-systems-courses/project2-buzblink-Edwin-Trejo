@@ -1,5 +1,6 @@
 #include <msp430.h>
 #include "leds.h"
+#include "switches.h"
 
 void led_init()
 {
@@ -10,7 +11,7 @@ void led_init()
 
 void led_update(){
   if (switch_state_changed) {
-    char ledFlags = 0;
+    char ledFlags = 0;   //no LEDS on by deafult
 
     ledFlags |= switch_state_down ? LED_GREEN : 0;
     ledFlags |= switch_state_down ? 0 : LED_RED;
