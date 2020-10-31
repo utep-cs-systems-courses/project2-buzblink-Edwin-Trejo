@@ -24,3 +24,12 @@ switch_init()
   switch_update_interrupt_sense();
   led_update();
 }
+
+void
+switch_interrupt_handler()
+{
+  char p2val = switch_update_interrupt_sense();
+  switch_state_down = (p2val & SW1) ? 0 : 1; //if SW1 is up, then is 0
+  switch_state_changed = 1;
+  led_update();
+}

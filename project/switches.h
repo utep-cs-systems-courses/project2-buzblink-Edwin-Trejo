@@ -6,7 +6,10 @@
 //#define SW3 //switch 3
 //define SW4 //switch 4
 
-#define SWITCHES SW1           //4 switches on this board
+#define SWITCHES SW1
+//#define SWITCHES SW2
+//#define SWITCHES SW3
+//#define SWITCHES SW4
 
 void switch_init();
 void switch_interrupt();
