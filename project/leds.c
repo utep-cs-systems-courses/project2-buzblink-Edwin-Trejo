@@ -33,7 +33,7 @@ void led_update(){
  
 
 void led_dim_update(){
-  enableWDTInterrupts();
+  // enableWDTInterrupts();
   if(switch_state_changed){
     char ledFlags = redVal[red_on];
     ledFlags |= switch_state_downSW1 ? 0 : LED_RED ;

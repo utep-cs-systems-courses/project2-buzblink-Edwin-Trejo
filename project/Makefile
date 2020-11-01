@@ -10,7 +10,7 @@ AR		= msp430-elf-ar
 
 all: toy.elf
 
-toy.elf: ${COMMON_OBJECTS} toyMain.o switches.o interrupt_handler.o leds.o stateMachines.o wdInterruptHandler.o libTimer.a
+toy.elf: ${COMMON_OBJECTS} toyMain.o switches.o interrupt_handler.o leds.o stateMachines.o  wdInterruptHandler.o melody.o libTimer.a
 	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^
 
 libTimer.a: clocksTimer.o sr.o
@@ -24,10 +24,11 @@ install: libTimer.a
 load: toy.elf
 	msp430loader.sh toy.elf
 
-
 clean:
 	rm -f *.o *.elf
 
 wdInterruptHandler.o: stateMachines.h
-
 stateMachines.o: leds.h stateMachines.h
+
+melody.c: melody.h
+

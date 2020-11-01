@@ -2,12 +2,15 @@
 #include "libTimer.h"
 #include "leds.h"
 #include "switches.h"
+#include "melody.h"
 
 int main(void){
   configureClocks();
   switch_init();
   led_init();
-  // enableWDTInterrupts();
+  enableWDTInterrupts();
+  melody_init();
+  //melody_play();
 
   or_sr(0x18);
 }
