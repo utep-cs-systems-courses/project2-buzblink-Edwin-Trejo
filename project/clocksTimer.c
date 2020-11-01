@@ -2,11 +2,11 @@
 #include "libTimer.h"
 
 void configureClocks(){
-  WDTCTL = WDTPW = WDTHOLD; //disable timer
-  BSCTL1 = CALBC1_16MHZ;    //Set DCO 16 Mhz
-  DCOTL = CALDCO_16MHZ;
+  WDTCTL = WDTPW + WDTHOLD; //disable timer
+  BCSCTL1 = CALBC1_16MHZ;    //Set DCO 16 Mhz
+  DCOCTL = CALDCO_16MHZ;
 
-  BCSTL2 &= ~(SELS);
+  BCSCTL2 &= ~(SELS);
   BCSCTL2 |=DIVS_3;
 }
 
@@ -25,6 +25,6 @@ void timerAUpmode()
   TA0CCR1 = 0;
   TA0CCTL1 = OUTMOD_3;
 
-  TACTL = TASSE;_2 + MC_1;
+  TACTL = TASSEL_2 + MC_1;
 }
  

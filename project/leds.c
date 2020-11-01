@@ -16,9 +16,9 @@ void led_update(){
     ledFlags |= switch_state_down ? LED_GREEN : 0;
     ledFlags |= switch_state_down ? 0 : LED_RED;
 
-    P1OUT &= (Oxff - LEDS) | ledFlags;
+    P1OUT &= (0xff - LEDS) | ledFlags;
     P1OUT |= ledFlags;
     
   }
-  switch_state_change = 0;
+  switch_state_changed = 0;
 }

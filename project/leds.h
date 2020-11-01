@@ -7,11 +7,11 @@
 #define LED_GREEN BIT6     //  P1.6
 #define LEDS (BIT0 | BIT6)
 
+void led_init();
+void led_update();
+
 extern unsigned char red_led_state, green_led_state;
-extern unsigned char led_changed;
+extern unsigned char leds_changed;
 
-void led_init();
-
-void led_init();
 
 #endif
