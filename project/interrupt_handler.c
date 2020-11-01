@@ -4,9 +4,13 @@
 
 void
 __interrupt_vec(PORT2_VECTOR) Port_2(){
-  if(P2IFG & SWITCHES){
-    P2IFG &= ~SWITCHES;
-    switch_interrupt_handler();
+  if(P2IFG & SWITCHES1){
+    P2IFG &= ~SWITCHES1;
+    switch_interrupt_handlerSW1();
+  }
+  if(P2IFG & SWITCHES2){
+    P2IFG &= ~SWITCHES2;
+    switch_interrupt_handlerSW2();
   }
 }
 

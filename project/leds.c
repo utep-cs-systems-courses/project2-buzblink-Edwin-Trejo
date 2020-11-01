@@ -21,8 +21,8 @@ void led_update(){
   if (switch_state_changed) {
     char ledFlags = 0;   //no LEDS on by deafult
 
-    ledFlags |= switch_state_downSW1 ? LED_GREEN : 0;
-    ledFlags |= switch_state_downSW1 ? 0 : LED_RED;
+    ledFlags |= switch_state_downSW2 ? LED_GREEN : 0;
+    ledFlags |= switch_state_downSW2 ? 0 : LED_RED;
 
     P1OUT &= (0xff - LEDS) | ledFlags;
     P1OUT |= ledFlags;
