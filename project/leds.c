@@ -34,11 +34,11 @@ void led_update(){
 
 void led_dim_update(){
   enableWDTInterrupts();
-  if(led_changed){
-     char ledFlags = redVal[red_on] | greenVal[green_on];
-  
-     P1OUT &= (0xff^LEDS) | ledFlags;
-     P1OUT |= ledFlags;     
-     led_changed = 0;
+  if(switch_state_changed){
+    char ledFlags = redVal[red_on];
+    ledFlags |= switch_state_downSW1 ? 0 : LED_RED ;
+    P1OUT &= (0xff^LEDS) | ledFlags;
+    P1OUT |= ledFlags;     
+    led_changed = 0;
   }
 }
