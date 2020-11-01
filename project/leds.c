@@ -2,6 +2,8 @@
 #include "leds.h"
 #include "switches.h"
 
+
+
 void led_init()
 {
   P1DIR |= LEDS;

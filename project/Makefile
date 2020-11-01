@@ -10,7 +10,7 @@ AR		= msp430-elf-ar
 
 all: toy.elf
 
-toy.elf: ${COMMON_OBJECTS} toyMain.o switches.o interrupt_handler.o leds.o libTimer.a
+toy.elf: ${COMMON_OBJECTS} toyMain.o switches.o interrupt_handler.o leds.o stateMachines.o wdInterruptHandler.o libTimer.a
 	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^
 
 libTimer.a: clocksTimer.o sr.o
@@ -29,3 +29,5 @@ clean:
 	rm -f *.o *.elf
 
 wdInterruptHandler.o: stateMachines.h
+
+stateMachines.o: leds.h stateMachines.h
