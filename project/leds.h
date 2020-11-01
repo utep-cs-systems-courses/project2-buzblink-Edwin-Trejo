@@ -9,9 +9,11 @@
 
 void led_init();
 void led_update();
+void led_dim_update();
 
 extern unsigned char red_led_state, green_led_state;
 extern unsigned char leds_changed;
-
+extern unsigned char red_on, green_on;
+extern unsigned char led_changed;
 
 #endif

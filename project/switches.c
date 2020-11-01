@@ -1,8 +1,9 @@
 #include <msp430.h>
 #include "switches.h"
 #include "leds.h"
+#include "libTimer.h"
 
-char switch_state_down, switch_state_changed;
+char switch_state_downSW1, switch_state_changed;
 
 static char
 switch_update_interrupt_sense()
@@ -29,7 +30,8 @@ void
 switch_interrupt_handler()
 {
   char p2val = switch_update_interrupt_sense();
-  switch_state_down = (p2val & SW1) ? 0 : 1; //if SW1 is up, then is 0
+  switch_state_downSW1 = (p2val & SW1) ? 0 : 1; //if SW1 is up, then is 0
   switch_state_changed = 1;
-  led_update();
+  led_dim_update();
+  
 }
