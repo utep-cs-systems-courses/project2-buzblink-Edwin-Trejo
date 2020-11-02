@@ -1,4 +1,4 @@
-##How to run it
+## How to run it
 1. The first step after opening shell is to type make clean (in case there are
 files already created).
 1. After that you will type make, and then make load.
@@ -6,7 +6,7 @@ files already created).
 
 When the program is running, the red LED should be on by deafult
 
-##Description
+## Description
 
 Button | Description
 ------ | -----------
