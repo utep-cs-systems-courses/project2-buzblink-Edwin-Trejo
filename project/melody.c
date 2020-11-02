@@ -13,18 +13,47 @@ void melody_init(){
 void tone(int tone, int duration){
   for (int i =0; i<duration; i++){
      CCR0 = tone;
-     CCR1 = tone/2;
+     CCR1 = tone>>1;
      __delay_cycles(400);
        }
   }
+void audio_siren(){
+  for(int i = 2000; i< 4000; i++){
+      tone(i,80);
+   }
+  for(int j = 4000; j> 2000; j--){
+    tone(j,80);
+  }
+  tone(0,10000);
+  switch_state_changed = 1;
+}
 
 void melody_play(){
   if(!switch_state_changed){
-  tone(3824,10000);
-  tone(3034,10000);
-  tone(2551,10000);
-  tone(3842,10000);
-  tone(0,10000);
+    tone(3824,7000);//C
+    tone(3034,7000);//E
+    tone(2551,7000);//G
+    tone(1911,7000);//C
+    tone(0,1000);
+    tone(1911,7000);//C
+    tone(0,1000);
+    tone(1911,7000);//C
+    tone(0,1000);
+    tone(2551,7000);//G
+    tone(0,1000);
+    tone(2551,7000);//G
+    tone(0,1000);
+    tone(2551,7000);//G
+    tone(0,1000);
+    tone(3034,7000);//E
+    tone(2551,7000);//G
+    tone(3034,7000);//E
+    tone(3824,7000);//C
+    
+    tone(0,10000);
   }
   switch_state_changed = 1;
 }
+
+
+

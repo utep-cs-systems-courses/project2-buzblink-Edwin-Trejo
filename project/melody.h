@@ -3,6 +3,7 @@
 
 void melody_init();
 void melody_play();
-//void tone();
+void tone();
+void audio_siren();
 
 #endif

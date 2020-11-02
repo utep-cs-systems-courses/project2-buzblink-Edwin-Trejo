@@ -10,7 +10,7 @@ int main(void){
   led_init();
   enableWDTInterrupts();
   melody_init();
-  //melody_play();
+
 
   or_sr(0x18);
 }

@@ -86,9 +86,10 @@ void
 switch_interrupt_handlerSW4()
 {
   char p2val = switch_update_interrupt_sense();
-  switch_state_downSW4 = (p2val & SW4) ? 0:1;
+  switch_state_downSW4 = (p2val & SW4) ? 0 : 1;
   switch_state_changed = 1;
-  led_siren();
+  //led_siren();
+  audio_siren();
   
 }
 
