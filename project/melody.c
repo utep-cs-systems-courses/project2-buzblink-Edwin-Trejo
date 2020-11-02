@@ -10,14 +10,14 @@ void melody_init(){
   P2SEL |= BIT6;
   P2DIR = BIT6;
 }
-void tone(int tone, int duration){
+void tone(int tone, int duration){  /*assigns tone and duration to CCR0 and CCR1*/
   for (int i =0; i<duration; i++){
      CCR0 = tone;
      CCR1 = tone>>1;
      __delay_cycles(400);
        }
   }
-void audio_siren(){
+void audio_siren(){   /*Siren that goes from frequency 2000 to 4000 and the comes back to 2000*/
   for(int i = 2000; i< 4000; i++){
       tone(i,80);
    }
@@ -28,7 +28,7 @@ void audio_siren(){
   switch_state_changed = 1;
 }
 
-void melody_play(){
+void melody_play(){  /*plays a short melody when called*/
   if(!switch_state_changed){
     tone(3824,7000);//C
     tone(3034,7000);//E

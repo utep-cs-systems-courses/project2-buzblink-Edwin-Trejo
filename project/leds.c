@@ -32,7 +32,7 @@ void led_update(){
 }
  
 
-void led_dim_update(){
+void led_dim_update(){  /*creates a dimmed red light*/
   if(switch_state_changed){
     char ledFlags = redVal[red_on];
     ledFlags |= switch_state_downSW1 ? 0 : LED_RED ;
@@ -42,7 +42,7 @@ void led_dim_update(){
   }
 }
 
-void led_update_green(){
+void led_update_green(){ /*turns the green LED on*/
   if(switch_state_changed){
     char ledFlags =  greenVal[green_on];
     ledFlags |= switch_state_downSW3 ? LED_GREEN :  0 ;
