@@ -45,7 +45,7 @@ void led_dim_update(){
 void led_update_green(){
   if(switch_state_changed){
     char ledFlags =  greenVal[green_on];
-    ledFlags |= switch_state_downSW3 ? 0 :  LED_GREEN ;
+    ledFlags |= switch_state_downSW3 ? LED_GREEN :  0 ;
     P1OUT &= (0xf^LEDS) | ledFlags;
     P1OUT |= ledFlags;
   }
@@ -58,7 +58,9 @@ void led_siren(){
     char ledFlags =  greenVal[green_on];
     //(switch_state_downSW4){
     P1OUT &= (0xf^LEDS) | ledFlags;
-    P1OUT |= ledFlags;   
+    P1OUT |= ledFlags;
+    state_advance();
+    led_siren();
     
   }
   switch_state_changed = 0;

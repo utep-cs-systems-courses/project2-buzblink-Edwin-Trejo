@@ -78,6 +78,8 @@ switch_interrupt_handlerSW3()
   switch_state_downSW3 = (p2val & SW3) ? 0 : 1; //if SW3 is up, then is 0
   switch_state_changed = 1;
   led_update_green();
+  melody_play();
+  
   
 }
 void
