@@ -12,6 +12,14 @@ __interrupt_vec(PORT2_VECTOR) Port_2(){
     P2IFG &= ~SWITCHES2;
     switch_interrupt_handlerSW2();
   }
+  if(P2IFG & SWITCHES3){
+    P2IFG &= ~SWITCHES3;
+    switch_interrupt_handlerSW3();
+  }
+  if(P2IFG & SWITCHES4){
+    P2IFG &= ~SWITCHES4;
+    switch_interrupt_handlerSW4();
+  }
 }
 
 

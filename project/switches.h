@@ -14,7 +14,9 @@
 void switch_init();
 void switch_interrupt_handlerSW1();
 void switch_interrupt_handlerSW2();
+void switch_interrupt_handlerSW3();
+void switch_interrupt_handlerSW4();
 
-extern char switch_state_downSW1, switch_state_downSW2, switch_state_changed;
+extern char switch_state_downSW1, switch_state_downSW2, switch_state_downSW3, switch_state_downSW4, switch_state_changed;
 
 #endif

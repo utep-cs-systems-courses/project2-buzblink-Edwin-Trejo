@@ -33,7 +33,6 @@ void led_update(){
  
 
 void led_dim_update(){
-  // enableWDTInterrupts();
   if(switch_state_changed){
     char ledFlags = redVal[red_on];
     ledFlags |= switch_state_downSW1 ? 0 : LED_RED ;
@@ -42,3 +41,26 @@ void led_dim_update(){
     led_changed = 0;
   }
 }
+
+void led_update_green(){
+  if(switch_state_changed){
+    char ledFlags =  greenVal[green_on];
+    ledFlags |= switch_state_downSW3 ? 0 :  LED_GREEN ;
+    P1OUT &= (0xf^LEDS) | ledFlags;
+    P1OUT |= ledFlags;
+  }
+  switch_state_changed = 0;
+
+}
+
+void led_siren(){
+  if(switch_state_changed){
+    char ledFlags =  greenVal[green_on];
+    //(switch_state_downSW4){
+    P1OUT &= (0xf^LEDS) | ledFlags;
+    P1OUT |= ledFlags;   
+    
+  }
+  switch_state_changed = 0;
+}
+

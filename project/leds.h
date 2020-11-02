@@ -10,6 +10,8 @@
 void led_init();
 void led_update();
 void led_dim_update();
+void led_update_green();
+void led_siren();
 
 extern unsigned char red_led_state, green_led_state;
 extern unsigned char leds_changed;
